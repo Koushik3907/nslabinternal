@@ -27,8 +27,8 @@ def sbox_up(bits):
     return sbox[row][col]
 
 def fiestal(data,key):
-    left_part=data[:1]
-    right_part=data[1:]
+    left_part=data[:4]
+    right_part=data[4:]
     
     ep_right_part=[right_part[i-1]for i in EP_TABLE]
     
