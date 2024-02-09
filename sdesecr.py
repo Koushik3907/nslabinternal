@@ -71,17 +71,16 @@ def encrypt(message,key):
     print("cipher:",final_text)
     return final_text
 
-plaintext = [1, 0, 0, 0, 0, 0, 0, 1]  # 8-bit plaintext
+plaintext = [1, 0, 0, 0, 0, 0, 0, 1]  
 key = [1, 0, 1, 0, 0, 0, 0, 0, 0, 0] 
 final_cipher_text = encrypt(plaintext,key)
 
 def sdes_dec(cipher, key):
   subkey1, subkey2 = key_gen(key)
   
-  # initial permutation
+ 
   initial_permutation = [cipher[i - 1] for i in IP_TABLE]
   
-  # -------------------------------------------------------- #
 
   first_half = fiestal(initial_permutation, subkey2)
   second_half = fiestal(first_half[4:] + first_half[:4], subkey1)
